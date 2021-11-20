@@ -1,0 +1,16 @@
+.inputGroup {
+    display: flex;
+    justify-content: end;
+}
+form {
+    width: 10%;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+.resultDiv { 
+    margin-left: 45%;
+    margin-right: 45%;
+    width: 10%;
+    margin-top:2em;
+
+}
