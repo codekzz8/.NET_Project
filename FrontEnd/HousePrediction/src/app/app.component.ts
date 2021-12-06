@@ -11,6 +11,8 @@ import { PredictionService } from './Services/prediction.service';
 export class AppComponent {
     public form;
     public result;
+    lat = 0
+    lng = 0
     constructor(private fb: FormBuilder,
                 private predictionService: PredictionService) {
         this.form = this.fb.group({
@@ -42,4 +44,9 @@ export class AppComponent {
             this.result = res;
         });
     }
+    onChoseLocation(event: any) {
+        console.log(event);
+        this.form.controls.lat.value = event.coords.lat;
+        this.form.controls.long.value = event.coords.lng;
+      }
 }

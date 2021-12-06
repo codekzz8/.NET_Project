@@ -62,11 +62,11 @@
     </div>
     <div class="inputGroup"> 
         <span class="inputLabel">lat: </span>
-        <input type="number" formControlName="lat" />
+        <input type="number" formControlName="lat" [(ngModel)]="this.form.controls.lat.value"/>
     </div>
     <div class="inputGroup"> 
         <span class="inputLabel">long: </span>
-        <input type="number" formControlName="long" />
+        <input type="number" formControlName="long" [(ngModel)]="this.form.controls.long.value" />
     </div>
     <div class="inputGroup"> 
         <span class="inputLabel">sqft_living15: </span>
@@ -81,7 +81,9 @@
     </button>
 </form>
 
-
+<agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
+  <agm-marker [latitude]="this.form.controls.lat.value" [longitude]="this.form.controls.long.value"></agm-marker>
+</agm-map>
 <div class="resultDiv">
     Predicted Price: {{result?.score}}
 </div>
