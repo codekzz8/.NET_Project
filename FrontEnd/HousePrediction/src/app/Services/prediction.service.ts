@@ -6,7 +6,7 @@ import { ApiService } from './api.service';
 export class PredictionService {
 
   constructor(private apiService: ApiService) { }
-  public GetPrediction(request) {
+  public GetPrediction(request: any) {
       return this.apiService.GetPrediction(request);
   }
 }

@@ -1,0 +1,10 @@
+.navbar {
+    display: flex;
+    padding: 1em;
+    justify-content: flex-end;
+    background-color: #eeeeee;
+    margin-bottom: 1em;
+}
+.navbarElement {
+    margin-left: 1em;
+}

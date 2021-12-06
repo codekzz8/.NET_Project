@@ -1,0 +1,14 @@
+
+<div class="loginContainer">
+    <h1> Please log in with google </h1>
+    <div *ngIf="isLoggedin === false">
+    <div>
+      <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
+    </div>
+    </div>
+
+    <div *ngIf="isLoggedin === true">
+
+    <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
+    </div>
+</div>
