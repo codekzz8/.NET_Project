@@ -9,6 +9,7 @@ import { FormComponent } from './form/form.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     RoutingModule,
     HttpClientModule,
     SocialLoginModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAAgTwfEaOp_dmxANwb9Bi7GeJaDcAhrkU'
+    })
   ],
   providers: [
     {

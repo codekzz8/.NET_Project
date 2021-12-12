@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
 import { PredictionService } from '../Services/prediction.service';
+import { AgmCoreModule } from '@agm/core';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-
+    lat = 47.590809498814444
+    lng = -122.32132152975095
     public form;
     public result: any;
     constructor(private fb: FormBuilder,
@@ -43,5 +45,12 @@ export class FormComponent {
             this.result = res;
         });
     }
+    onChoseLocation(event: any) {
+        console.log(event);
+        this.form.patchValue({
+            lat: event.coords.lat,
+            long: event.coords.lng
+        })
 
+        }
 }

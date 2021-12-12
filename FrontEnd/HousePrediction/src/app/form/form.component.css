@@ -12,5 +12,7 @@ form {
     margin-right: 45%;
     width: 10%;
     margin-top:2em;
-
+}
+agm-map {
+    height: 300px;
 }

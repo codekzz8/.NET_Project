@@ -82,6 +82,9 @@
     </button>
 </form>
 
+<agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
+    <agm-marker [latitude]="this.form.get('lat')!.value" [longitude]="this.form.get('long')!.value"></agm-marker>
+</agm-map>
 
 <div class="resultDiv">
     Predicted Price: {{result?.score}}
