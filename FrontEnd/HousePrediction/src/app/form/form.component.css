@@ -1,18 +1,68 @@
 .inputGroup {
-    display: flex;
-    justify-content: end;
+    text-align: center;
+}
+.inputGroup input[type="checkbox"]{
+    width: 1.5em;
+    height: 1.5em;
 }
 form {
-    width: 10%;
-    margin-left: 45%;
-    margin-right: 45%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.noUi-horizontal .noUi-tooltip {
+    opacity: 0.9;
+}
+.submitButtonContainer {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+}
+.submitButtonContainer button{
+    margin-left: auto;
+    margin-right: auto;
 }
 .resultDiv { 
-    margin-left: 45%;
-    margin-right: 45%;
-    width: 10%;
-    margin-top:2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+nouislider {
+    width: 13em;
+    margin-left: auto;
+    margin-right: auto;
 }
 agm-map {
     height: 300px;
 }
+
+.plusminus {
+    display: inline-block;
+    width: 100%;
+    float: right;
+}
+
+.plusminus .minus, .plusminus .plus {
+    display: inline-block;
+    font-size: inherit;
+    text-align: center;
+    color: #4247BF;
+    cursor: pointer;
+    font-weight: 100;
+    width: 29px;
+    height: 29px;
+    border: 1px solid #4247BF;
+}
+
+.plusminus .minus img, .plusminus .plus img {
+    width: auto;
+}
+
+.plusminus .centerNumber {
+    font-size: inherit;
+    margin: 0px 10px;
+}
+

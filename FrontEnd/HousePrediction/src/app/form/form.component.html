@@ -2,90 +2,97 @@
 </app-navbar>
 <form [formGroup]="form" (ngSubmit)="OnSubmit()">
     <div class="inputGroup"> 
-        <span class="inputLabel">date: </span>
-        <input type="string" formControlName="date" />
+        <h2 class="inputLabel">Date: </h2>
+        <input type="date" formControlName="date" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">bedrooms: </span>
-        <input type="number" formControlName="bedrooms" />
+        <h2 class="inputLabel">Bedrooms: </h2>
+        <div class="plusminus">
+            <span class="minus" (click)="changeFormValue('bedrooms', -1)"><img src="assets/minus.png"></span>
+            <span class="centerNumber">{{form.controls['bedrooms'].value}}</span>
+            <span class="plus" (click)="changeFormValue('bedrooms', 1)"><img src="assets/plus.png"></span>
+        </div>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">bathrooms: </span>
-        <input type="number" formControlName="bathrooms" />
+        <h2 class="inputLabel">Bathrooms: </h2>
+        <div class="plusminus">
+            <span class="minus" (click)="changeFormValue('bathrooms', -1)"><img src="assets/minus.png"></span>
+            <span class="centerNumber">{{form.controls['bathrooms'].value}}</span>
+            <span class="plus" (click)="changeFormValue('bathrooms', 1)"><img src="assets/plus.png"></span>
+        </div>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">sqft_living: </span>
+        <h2 class="inputLabel">Usable square foot: </h2>
         <input type="number" formControlName="sqft_living" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">sqft_lot: </span>
+        <h2 class="inputLabel">Land square foot: </h2>
         <input type="number" formControlName="sqft_lot" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">floors: </span>
-        <input type="number" formControlName="floors" />
+        <h2 class="inputLabel">Floors: </h2>
+        <div class="plusminus">
+            <span class="minus" (click)="changeFormValue('floors', -1)"><img src="assets/minus.png"></span>
+            <span class="centerNumber">{{form.controls['floors'].value}}</span>
+            <span class="plus" (click)="changeFormValue('floors', 1)"><img src="assets/plus.png"></span>
+        </div>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">waterfront: </span>
-        <input type="number" formControlName="waterfront" />
+        <h2 class="inputLabel">Waterfront: </h2>
+        <input type="checkbox" formControlName="waterfront" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">view: </span>
-        <input type="number" formControlName="view" />
+        <h2 class="inputLabel">View: </h2>
+        <input type="checkbox" formControlName="view" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">condition: </span>
-        <input type="number" formControlName="condition" />
+        <h2 class="inputLabel">Condition: </h2>
+        <nouislider [tooltips]="[true]" [min]="1" [max]="5" [step]="1" [formControl]="getFormRef(form.get('condition'))"></nouislider>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">grade: </span>
-        <input type="number" formControlName="grade" />
+        <h2 class="inputLabel">Grade: </h2>
+        <nouislider [tooltips]="[true]" [min]="1" [max]="13" [step]="1" [formControl]="getFormRef(form.get('grade'))"></nouislider>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">sqft_above: </span>
+        <h2 class="inputLabel">Square foot above: </h2>
         <input type="number" formControlName="sqft_above" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">sqft_basement: </span>
+        <h2 class="inputLabel">Square foot basement: </h2>
         <input type="number" formControlName="sqft_basement" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">yr_built: </span>
-        <input type="number" formControlName="yr_built" />
+        <h2 class="inputLabel">Year Built: </h2>
+        <nouislider [tooltips]="[true]" [min]="1820" [max]="2022" [step]="1" [formControl]="getFormRef(form.get('yr_built'))"></nouislider>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">yr_renovated: </span>
-        <input type="number" formControlName="yr_renovated" />
+        <h2 class="inputLabel">Year Renovated: </h2>
+        <input type="checkbox" formControlName="renovated"/>
+        <nouislider [disabled]="!form.get('renovated')?.value" [tooltips]="[true]" [min]="1820" [max]="2022" [step]="1" [formControl]="getFormRef(form.get('yr_renovated'))"></nouislider>
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">zipcode: </span>
+        <h2 class="inputLabel">Zipcode: </h2>
         <input type="number" formControlName="zipcode" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">lat: </span>
-        <input type="number" formControlName="lat" />
-    </div>
-    <div class="inputGroup"> 
-        <span class="inputLabel">long: </span>
-        <input type="number" formControlName="long" />
-    </div>
-    <div class="inputGroup"> 
-        <span class="inputLabel">sqft_living15: </span>
+        <h2 class="inputLabel">Average usable square footing of closest 15 apartments: </h2>
         <input type="number" formControlName="sqft_living15" />
     </div>
     <div class="inputGroup"> 
-        <span class="inputLabel">sqft_lot15: </span>
+        <h2 class="inputLabel">Average square footing of closest 15 land lots: </h2>
         <input type="number" formControlName="sqft_lot15" />
     </div>
-    <button type="submit">
-        SUBMIT
-    </button>
+    <div class="submitButtonContainer">
+        <button type="submit" class="btn btn-primary">
+            SUBMIT
+        </button>
+    </div>
 </form>
 
 <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
     <agm-marker [latitude]="this.form.get('lat')!.value" [longitude]="this.form.get('long')!.value"></agm-marker>
 </agm-map>
 
-<div class="resultDiv">
+<h1 class="resultDiv">
     Predicted Price: {{result?.score}}
-</div>
+</h1>

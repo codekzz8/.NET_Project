@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
+import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms'
 import { PredictionService } from '../Services/prediction.service';
 import { AgmCoreModule } from '@agm/core';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,11 +15,16 @@ export class FormComponent {
     lng = -122.32132152975095
     public form;
     public result: any;
+    public sliderValue = 3;
+    public getFormRef(control: any) {
+        return control as FormControl;
+
+    }
     constructor(private fb: FormBuilder,
                 private predictionService: PredictionService) {
         this.form = this.fb.group({
             id: ['7129300520'],
-            date: ['20141013T000000'],
+            date: [new Date('2014/10/13')],
             bedrooms: ['3'],
             bathrooms: ['1'],
             sqft_living: ['1180'],
@@ -31,6 +37,7 @@ export class FormComponent {
             sqft_above: ['1180'],
             sqft_basement: ['0'],
             yr_built: ['1955'],
+            renovated: [false],
             yr_renovated: ['0'],
             zipcode: ['98178'],
             lat: ['47.5112'],
@@ -38,6 +45,11 @@ export class FormComponent {
             sqft_living15: ['1340'],
             sqft_lot15: ['5650']
           });
+    }
+    public changeFormValue(control: string, change: number) {
+        this.form.controls[control].setValue(parseInt(this.form.controls[control].value) + change);
+        if(this.form.controls[control].value < 0)
+            this.form.controls[control].setValue(0);
     }
     public async OnSubmit() {
         console.log('test');

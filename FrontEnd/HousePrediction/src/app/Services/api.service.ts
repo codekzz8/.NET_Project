@@ -16,6 +16,12 @@ export class ApiService {
                 private loginService: LoginService) { }
 
     public async GetPrediction(body: any) {
+        body.date = new Date(body.date);
+        body.date = body.date.getFullYear().toString() + ('0' + body.date.getMonth().toString()).slice(-2) + ('0' + body.date.getDay().toString()).slice(-2) + 'T000000';
+        body.waterfront = body.waterfront ? '1' : '0';
+        body.view = body.view ? '1' : '0';
+        body.yr_renovated = body.renovated ? body.yr_renovated : '0';
+        console.log(body);
         if(this.currentBearerToken == null) {
             await this.Authenticate();
             let reqHeader = new HttpHeaders({ 

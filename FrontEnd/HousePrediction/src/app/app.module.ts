@@ -10,6 +10,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AgmCoreModule } from '@agm/core';
+import { NouisliderModule } from 'ng2-nouislider';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     SocialLoginModule,
     ReactiveFormsModule,
+    NouisliderModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAAgTwfEaOp_dmxANwb9Bi7GeJaDcAhrkU'
     })
