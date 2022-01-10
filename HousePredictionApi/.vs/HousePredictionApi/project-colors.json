@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ead55da2-7e5a-4f5e-8cc6-57a66ba9ad1c": {
+      "ProjectGuid": "ead55da2-7e5a-4f5e-8cc6-57a66ba9ad1c",
+      "DisplayName": "HousePredictionApi",
+      "ColorIndex": 0
+    },
+    "88afb2ee-476b-418a-8121-c47ac5679c8b": {
+      "ProjectGuid": "88afb2ee-476b-418a-8121-c47ac5679c8b",
+      "DisplayName": "HousePredictionApiTest",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
